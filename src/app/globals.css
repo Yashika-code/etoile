@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-warm-ivory: #FAF8F5;
+    --gold-champagne: #C5A880;
+    --gold-deep: #A7885F;
+    --gold-light: #E8D8C3;
+    --charcoal-deep: #1A1A1A;
+    --charcoal-soft: #262626;
+    --neutral-taupe: #8C827A;
+    --neutral-stone: #EFECE6;
+    --neutral-sand: #F4EFEB;
+  }
+
+  body {
+    background-color: var(--bg-warm-ivory);
+    color: var(--charcoal-deep);
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif), "Didot", "Bodoni MT", "Cinzel", Georgia, serif;
+    letter-spacing: -0.015em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A880;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A7885F;
+}
+
+/* Subtle Shimmer & Fine Borders */
+.gold-border {
+  border-color: rgba(197, 168, 128, 0.35);
+}
+.gold-border-focus:focus-visible {
+  outline: 2px solid #C5A880;
+  outline-offset: 2px;
+}
+
+.luxury-card-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.luxury-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(26, 26, 26, 0.08);
 }
